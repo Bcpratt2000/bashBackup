@@ -27,7 +27,7 @@ tmp_directory='/mnt/FTP_drive/tmp/'
 day=$(date +%A)
 
 #start program
-
+mkdir $tmp_directory
 cd $tmp_directory
 
 rm *.tar.gz # clear tmp folder
@@ -40,6 +40,7 @@ chmod 777 $day.tar.gz
 
 echo 'Starting server transfer'
 lftp -p $remote_port -u $remote_user,$remote_password $remote_server << --EOF--
+        mkdir $remote_dir
         cd $remote_dir
         rm $day.tar.gz
         put $day.tar.gz
