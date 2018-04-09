@@ -6,17 +6,16 @@
 
 #dependencies
         #rsync
-        #lftp
 	#tar
 
 #config variables
 
 
 
-remote_server='google.bcpratt.com'
+remote_server=''
 remote_dir='/mnt/drive'
 remote_port='22'
-remote_user='bcpratt2000'
+remote_user=''
 local_directory='/mnt/FTP_drive'
 
 tmp_directory='/mnt/FTP_drive/tmp/'
@@ -32,11 +31,11 @@ cd $tmp_directory
 
 rm *.tar # clear tmp folder
 
-echo 'Compressing file'
+echo 'Packing file'
 tar -vcf $day.tar $local_directory
 
 echo 'Changing Permissions'
-chmod 777 $day.tar
+chmod 750 $day.tar
 
 echo 'Starting server transfer'
 
